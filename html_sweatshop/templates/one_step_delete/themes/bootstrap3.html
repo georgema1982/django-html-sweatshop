@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div id="{{ dialog_id }}" class="modal fade" data-one-step-delete-dlg>
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title" data-one-step-delete-dlg-title>{% if title %}{{ title }}{% else %}{% trans 'Are you sure?' %}{% endif %}</h4>
+      		</div>
+	      	<div class="modal-body">
+	        	<p data-one-step-delete-dlg-body>{% if body %}{{ body }}{% else %}{% blocktrans %}Are you sure you want to delete the {{ obj_description }} <span data-obj-description>{{ obj }}</span>?{% endblocktrans %}{% endif %}</p>
+	      	</div>
+	      	<div class="modal-footer">
+	      		<form action="{{ url }}" method="post" data-one-step-delete-form>
+	      			{% csrf_token %}
+		        	<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> {% trans 'Cancel' %}</button>
+		        	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {% trans 'Delete' %}</button>
+		        </form>
+	      	</div>
+    	</div><!-- /.modal-content -->
+  	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
