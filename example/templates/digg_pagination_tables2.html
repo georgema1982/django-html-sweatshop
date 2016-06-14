@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load digg_pagination_tags static %}
+{% load render_table from django_tables2 %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}"/>{% endblock %}
+
+{% block container %}
+	{% render_table table %}
+	{% digg_paginator_tables2 %}
+{% endblock %}

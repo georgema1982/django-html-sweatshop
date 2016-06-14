@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load digg_pagination_tags %}
+
+{% block container %}
+	<table class="table">
+		<tr><th>ID</th></tr>
+		{% for obj in page_obj %}
+			<tr><td>{{ obj }}</td></tr>
+		{% endfor %}
+	</table>
+	{% digg_paginator %}
+{% endblock %}

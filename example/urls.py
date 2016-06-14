@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from example import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.IndexView.as_view(), name = 'index'),
+    url(r'^digg_pagination_raw/$', views.DiggPaginationRawView.as_view(), name = 'digg_pagination_raw'),
+    url(r'^digg_pagination_tables2/$', views.DiggPaginationTables2View.as_view(), name = 'digg_pagination_tables2'),
+    url(r'^tables2/$', views.Tables2View.as_view(), name = 'tables2'),
 ]

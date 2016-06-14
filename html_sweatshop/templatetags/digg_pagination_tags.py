@@ -46,13 +46,13 @@ def digg_paginator(context, page_obj = None, page_field = 'page', theme = settin
     return paginator(context, page_obj or template.Variable('page_obj').resolve(context), page_field, theme)
 
 @register.inclusion_tag('digg_pagination/digg_paginator.html', takes_context=True)
-def digg_paginator_tables2(context, theme = settings.HTML_SWEATSHOP_THEME):
-    return paginator(context, template.Variable('table.page').resolve(context), template.Variable('table.prefixed_page_field').resolve(context), theme)
+def digg_paginator_tables2(context, table = None, theme = settings.HTML_SWEATSHOP_THEME):
+    return paginator(context, table and table.page or template.Variable('table.page').resolve(context), table and table.prefixed_page_field or template.Variable('table.prefixed_page_field').resolve(context), theme)
 
 @register.inclusion_tag('django_tables2/paginated_table.html', takes_context=True)
-def render_paginated_table(context, table, theme = settings.HTML_SWEATSHOP_THEME):
+def render_paginated_table(context, table = None, theme = settings.HTML_SWEATSHOP_THEME):
     return {
         'request': context['request'],
-        'table': table,
+        'table': table or template.Variable('table').resolve(context),
         'template': 'django_tables2/themes/%s.html' % theme
     }
