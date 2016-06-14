@@ -2,6 +2,7 @@ from django.views.generic.base import TemplateView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django_tables2.views import SingleTableMixin
 from example.tables import DemoTable, DemoTable2
+from django.contrib import messages
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -27,7 +28,6 @@ class DiggPaginationRawView(TemplateView):
         return context
 
 class DiggPaginationTables2View(SingleTableMixin, TemplateView):
-    
     template_name = 'digg_pagination_tables2.html'
     table_class = DemoTable
     table_data = [{'id': id} for id in xrange(100)]
@@ -36,3 +36,15 @@ class DiggPaginationTables2View(SingleTableMixin, TemplateView):
 class Tables2View(DiggPaginationTables2View):
     template_name = 'tables2.html'
     table_class = DemoTable2
+
+class MessageCentreView(TemplateView):
+    
+    template_name = 'message_centre.html'
+    
+    def get_context_data(self, **kwargs):
+        request = self.request
+        messages.info(request, 'This is an info')
+        messages.success(request, 'This is a success')
+        messages.warning(request, 'This is a warning')
+        messages.error(request, 'This is an error')
+        return super(MessageCentreView, self).get_context_data(**kwargs)

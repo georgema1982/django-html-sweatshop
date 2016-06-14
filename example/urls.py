@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^digg_pagination_raw/$', views.DiggPaginationRawView.as_view(), name = 'digg_pagination_raw'),
     url(r'^digg_pagination_tables2/$', views.DiggPaginationTables2View.as_view(), name = 'digg_pagination_tables2'),
     url(r'^tables2/$', views.Tables2View.as_view(), name = 'tables2'),
+    url(r'^message_centre/$', views.MessageCentreView.as_view(), name = 'message_centre'),
 ]
