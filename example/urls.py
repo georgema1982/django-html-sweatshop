@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^digg_pagination_tables2/$', views.DiggPaginationTables2View.as_view(), name = 'digg_pagination_tables2'),
     url(r'^tables2/$', views.Tables2View.as_view(), name = 'tables2'),
     url(r'^message_centre/$', views.MessageCentreView.as_view(), name = 'message_centre'),
+    url(r'^one_step_delete/$', views.OneStepDeleteView.as_view(), name = 'one_step_delete'),
 ]

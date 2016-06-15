@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load one_step_delete_tags static %}
+
+{% block container %}
+	<h1>One popup for a single object</h1>
+	<hr>
+	<button class="btn btn-danger" data-toggle="modal" data-target="#confirmation-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Single Object</button>
+	{% render_confirm_modal body='Are you sure you want to delete the single object?' %}
+	<h1>One popup for multiple objects</h1>
+	<hr>
+	Object 1<button class="btn btn-danger" data-toggle="modal" data-target="#multiple-modal" data-modal-action="" data-obj-description="Object 1"><span class="glyphicon glyphicon-remove" aria-hidden="true" title="Delete"></span></button>
+	Object 2<button class="btn btn-danger" data-toggle="modal" data-target="#multiple-modal" data-modal-action="" data-obj-description="Object 2"><span class="glyphicon glyphicon-remove" aria-hidden="true" title="Delete"></span></button>
+	Object 3<button class="btn btn-danger" data-toggle="modal" data-target="#multiple-modal" data-modal-action="" data-obj-description="Object 3"><span class="glyphicon glyphicon-remove" aria-hidden="true" title="Delete"></span></button>
+	{% render_confirm_modal 'multiple-modal' obj_description=_('multi-object') %}
+{% endblock %}
+
+{% block js %}
+	{% include_one_step_delete_js %}
+	<script type="text/javascript" src="{% static 'one_step_delete/js/init_one_step_delete.js' %}"></script>
+{% endblock %}

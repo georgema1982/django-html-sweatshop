@@ -1,4 +1,4 @@
-from django.views.generic.base import TemplateView
+from django.views.generic.base import TemplateView, View
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django_tables2.views import SingleTableMixin
 from example.tables import DemoTable, DemoTable2
@@ -48,3 +48,12 @@ class MessageCentreView(TemplateView):
         messages.warning(request, 'This is a warning')
         messages.error(request, 'This is an error')
         return super(MessageCentreView, self).get_context_data(**kwargs)
+
+class OneStepDeleteView(TemplateView):
+    
+    template_name = 'one_step_delete.html'
+    
+    def post(self, request, *args, **kwargs):
+        return self.get(self, request, *args, **kwargs)
+    
+    
