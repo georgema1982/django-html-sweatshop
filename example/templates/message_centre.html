@@ -2,6 +2,9 @@
 
 {% load message_centre_tags %}
 
+{% block message_centre_class %} class="active"{% endblock %}
+
 {% block container %}
+	<p>message_centre tag can render messages based on the theme pack.</p>
 	{% message_centre %}
 {% endblock %}

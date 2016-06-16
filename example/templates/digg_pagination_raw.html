@@ -1,8 +1,11 @@
-{% extends "base.html" %}
+{% extends "base_digg_pagination.html" %}
 
 {% load digg_pagination_tags %}
 
+{% block digg_pagination_raw_class %} class="active"{% endblock %}
+
 {% block container %}
+	<p>This is the raw way of displaying pagination. You have to render the table by yourself and use digg_paginator tag to display the pagination wherever you like. It provides greater flexibility over other tags.</p>
 	<table class="table">
 		<tr><th>ID</th></tr>
 		{% for obj in page_obj %}

@@ -2,10 +2,15 @@
 
 {% load one_step_delete_tags static %}
 
+{% block one_step_delete_class %} class="active"{% endblock %}
+
 {% block container %}
+	<p>render_confirm_modal can render a confirmation popup based on the theme pack before submitting. One delete button can use a dedicated popup or multiple delete buttons can share the same one. csrf token has already been taken care of by this tag.</p>
 	<h1>One popup for a single object</h1>
 	<hr>
 	<button class="btn btn-danger" data-toggle="modal" data-target="#confirmation-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Single Object</button>
+	<p>&nbsp</p>
+	<p>&nbsp</p>
 	{% render_confirm_modal body='Are you sure you want to delete the single object?' %}
 	<h1>One popup for multiple objects</h1>
 	<hr>
