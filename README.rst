@@ -130,6 +130,7 @@ Load the JQuery plugin
 Load the JQuery plugin at where js should be included. It's your own responsibility to include JQuery itself.
 
 	{% include_one_step_delete_js %}
+	
 	<script type="text/javascript" src="{% static 'one_step_delete/js/init_one_step_delete.js' %}"></script>
 
 Render delete buttons
