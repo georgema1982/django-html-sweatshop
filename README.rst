@@ -233,7 +233,9 @@ Demo
 Checkout the source codes. Inside the source codes folder, run the following commands:
 
 	mkvirtualenv demo
+	
 	pip install -r requirements.txt
+	
 	python manage.py runserver
 
 How to contribute
